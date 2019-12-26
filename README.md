@@ -1,3 +1,3 @@
-# quiz_app
+# QuizApp
 
 📱 Quiz App written in Flutter
