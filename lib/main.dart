@@ -49,6 +49,7 @@ class _MyAppState extends State<MyApp> { // State for MyApp class
             ),
             RaisedButton(
               child: Text("Restart"),
+              color: Colors.red,
               onPressed: () {
                 setState(() {
                   _questionIndex = 0;
