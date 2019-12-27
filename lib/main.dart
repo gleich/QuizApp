@@ -43,6 +43,14 @@ class _MyAppState extends State<MyApp> { // State for MyApp class
             RaisedButton(
               child: Text("Answer 3"),
               onPressed: _answeredQuestion,
+            ),
+            RaisedButton(
+              child: Text("Restart"),
+              onPressed: () {
+                setState(() {
+                  _questionIndex = 0;
+                });
+              },
             )
           ],
         ),
