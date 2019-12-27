@@ -29,7 +29,8 @@ class _MyAppState extends State<MyApp> { // State for MyApp class
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Quiz App"),
+          title: Text("✏️    Quiz App    ✏️",),
+          backgroundColor: Colors.black,
         ),
         body: Column(
           children: <Widget>[
