@@ -11,7 +11,8 @@ class MyApp extends StatefulWidget {
   }
 }
 
-class _MyAppState extends State<MyApp> { // State for MyApp class
+class _MyAppState extends State<MyApp> {
+  // State for MyApp class
   var _questionIndex = 0;
 
   void _answeredQuestion() {
@@ -29,7 +30,9 @@ class _MyAppState extends State<MyApp> { // State for MyApp class
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("✏️    Quiz App    ✏️",),
+          title: Text(
+            "✏️    Quiz App    ✏️",
+          ),
           backgroundColor: Colors.black,
         ),
         body: Column(
@@ -47,15 +50,22 @@ class _MyAppState extends State<MyApp> { // State for MyApp class
               child: Text("Answer 3"),
               onPressed: _answeredQuestion,
             ),
-            RaisedButton(
-              child: Text("Restart"),
-              color: Colors.red,
-              onPressed: () {
-                setState(() {
-                  _questionIndex = 0;
-                });
-              },
-            )
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.all(60),
+              child: RaisedButton(
+                child: Text(
+                  "Restart",
+                  style: TextStyle(color: Colors.white),
+                ),
+                color: Colors.red,
+                onPressed: () {
+                  setState(() {
+                    _questionIndex = 0;
+                  });
+                },
+              ),
+            ),
           ],
         ),
       ),
