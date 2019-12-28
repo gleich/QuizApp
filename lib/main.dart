@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 
 import "./question.dart";
+import "./answer.dart";
 
 void main() => runApp(MyApp());
 
@@ -38,27 +39,16 @@ class _MyAppState extends State<MyApp> {
         body: Column(
           children: <Widget>[
             Question(questions[_questionIndex]),
-            RaisedButton(
-              child: Text("Answer 1"),
-              onPressed: _answeredQuestion, // Pass name of function
-            ),
-            RaisedButton(
-              child: Text("Answer 2"),
-              onPressed: _answeredQuestion,
-            ),
-            RaisedButton(
-              child: Text("Answer 3"),
-              onPressed: _answeredQuestion,
-            ),
+            Answer(_answeredQuestion),
+            Answer(_answeredQuestion),
+            Answer(_answeredQuestion),
             Container(
               width: double.infinity,
               margin: EdgeInsets.all(60),
               child: RaisedButton(
-                child: Text(
-                  "Restart",
-                  style: TextStyle(color: Colors.white),
-                ),
+                child: Text("Restart"),
                 color: Colors.red,
+                textColor: Colors.white,
                 onPressed: () {
                   setState(() {
                     _questionIndex = 0;
