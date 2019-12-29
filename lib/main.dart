@@ -27,9 +27,12 @@ class _MyAppState extends State<MyApp> {
     var questions = [
       {
         "question": "What is your favorite color?",
-        "answers": ["Red", "Green", "Blue"]
+        "answers": ["🔴 Red 🔴", "🟢 Green 🟢", "🔵 Blue 🔵"]
       },
-      {"question": "What is your favorite animal?", "answers": []}
+      {
+        "question": "What is your favorite animal?",
+        "answers": ["🐶 Dog 🐶", "😺 Cat 😺", "🦎 Lizard 🦎", "🦝 Racoon 🦝"]
+      }
     ];
     return MaterialApp(
       home: Scaffold(
@@ -55,7 +58,8 @@ class _MyAppState extends State<MyApp> {
                 color: Colors.red,
                 textColor: Colors.white,
                 onPressed: () {
-                  setState(() {
+                  setState(
+                    () {
                       _questionIndex = 0;
                     },
                   );
