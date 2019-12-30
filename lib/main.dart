@@ -37,9 +37,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text(
-            "✏️    Quiz App    ✏️",
-          ),
+          title: Text("✏️    Quiz App    ✏️"),
           backgroundColor: Colors.black,
         ),
         body: _questionIndex < questions.length
@@ -70,14 +68,36 @@ class _MyAppState extends State<MyApp> {
                 ],
               )
             : Center(
-                child: Text(
-                  "Nice Job on Finishing the Quiz!",
-                  style: TextStyle(
-                    decoration: TextDecoration.underline,
-                    fontSize: 20.0,
-                    color: Color.fromRGBO(52, 119, 41, 1.0)
-                  ),
-                )
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      "Nice Job on Finishing the Quiz!",
+                      style: TextStyle(
+                        color: Color.fromRGBO(51, 119, 41, 1.0),
+                        decoration: TextDecoration.underline,
+                        decorationColor: Colors.black,
+                        fontSize: 20.0,
+                      ),
+                    ),
+                    Container(
+                      width: double.infinity,
+                      margin: EdgeInsets.all(60),
+                      child: RaisedButton(
+                        child: Text("Restart"),
+                        color: Colors.red,
+                        textColor: Colors.white,
+                        onPressed: () {
+                          setState(
+                            () {
+                              _questionIndex = 0;
+                            },
+                          );
+                        },
+                      ),
+                    )
+                  ],
+                ),
               ),
       ),
     );
