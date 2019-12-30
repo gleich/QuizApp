@@ -31,7 +31,7 @@ class _MyAppState extends State<MyApp> {
       },
       {
         "question": "What is your favorite animal?",
-        "answers": ["🐶 Dog 🐶", "😺 Cat 😺", "🦎 Lizard 🦎", "🦝 Racoon 🦝"]
+        "answers": ["🐶 Dog 🐶", "😺 Cat 😺", "🦝 Racoon 🦝"]
       }
     ];
     return MaterialApp(
