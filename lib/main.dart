@@ -24,7 +24,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    var questions = [
+    const questions = [
       {
         "question": "What is your favorite color?",
         "answers": ["🔴 Red 🔴", "🟢 Green 🟢", "🔵 Blue 🔵"]
