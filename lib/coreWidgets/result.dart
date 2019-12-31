@@ -20,7 +20,7 @@ class Result extends StatelessWidget {
                 fontWeight: FontWeight.bold),
           ),
           Text(
-            "Your Score was: " + score.toString(),
+            "Your Score was: " + score.toString() + "/30",
             style: TextStyle(
               fontSize: 30.0,
             ),
