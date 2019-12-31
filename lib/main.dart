@@ -1,6 +1,5 @@
 import "package:flutter/material.dart";
 
-
 import './coreWidgets/quiz.dart';
 import './coreWidgets/result.dart';
 
@@ -24,6 +23,10 @@ class _MyAppState extends State<MyApp> {
     {
       "question": "What is your favorite animal?",
       "answers": ["🐶 Dog 🐶", "😺 Cat 😺", "🦝 Racoon 🦝"]
+    },
+    {
+      "question": "What is Matt's Age?",
+      "answers": ["🎂 15 🎂", "🎂 16 🎂", "🎂 14 🎂"]
     }
   ];
 
