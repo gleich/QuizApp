@@ -15,23 +15,37 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   // State for MyApp class
   var _questionIndex = 0;
+  var _totalScore = 0;
   static const _questions = [
     {
       "question": "What is your favorite color?",
-      "answers": ["🔴 Red 🔴", "🟢 Green 🟢", "🔵 Blue 🔵"]
+      "answers": [
+        {"text": "🔴 Red 🔴", "score": 5},
+        {"text": "🟢 Green 🟢", "score": 5},
+        {"text": "🔵 Blue 🔵", "score": 10}
+      ]
     },
     {
       "question": "What is your favorite animal?",
-      "answers": ["🐶 Dog 🐶", "😺 Cat 😺", "🦝 Racoon 🦝"]
+      "answers": [
+        {"text": "🐶 Dog 🐶", "score": 0},
+        {"text": "😺 Cat 😺", "score": 5},
+        {"text": "🦝 Racoon 🦝", "score": 10}
+      ]
     },
     {
       "question": "What is Matt's Age?",
-      "answers": ["🎂 15 🎂", "🎂 16 🎂", "🎂 14 🎂"]
+      "answers": [
+        {"text": "🎂 15 🎂", "score": 10},
+        {"text": "🎂 16 🎂", "score": 5},
+        {"text": "🎂 20 🎂", "score": -5}
+      ]
     }
   ];
 
-  void _answeredQuestion() {
+  void _answeredQuestion(int score) {
     setState(() {
+      _totalScore += score;
       _questionIndex = _questionIndex + 1;
     }); // Change state of MyApp Widget
   }
@@ -39,6 +53,7 @@ class _MyAppState extends State<MyApp> {
   void _restart() {
     setState(() {
       _questionIndex = 0;
+      _totalScore = 0;
     });
   }
 
@@ -46,19 +61,21 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text("✏️    Quiz App    ✏️"),
-          backgroundColor: Colors.black,
-        ),
-        body: _questionIndex < _questions.length
-            ? Quiz(
-                questions: _questions,
-                answeredQuestion: _answeredQuestion,
-                questionIndex: _questionIndex,
-                restart: _restart,
-              )
-            : Result(restart: _restart,)
-      ),
+          appBar: AppBar(
+            title: Text("✏️    Quiz App    ✏️"),
+            backgroundColor: Colors.black,
+          ),
+          body: _questionIndex < _questions.length
+              ? Quiz(
+                  questions: _questions,
+                  answeredQuestion: _answeredQuestion,
+                  questionIndex: _questionIndex,
+                  restart: _restart,
+                )
+              : Result(
+                  restart: _restart,
+                  score: _totalScore,
+                )),
     );
   }
 }
