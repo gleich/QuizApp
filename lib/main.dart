@@ -74,7 +74,7 @@ class _MyAppState extends State<MyApp> {
                     Text(
                       "Nice Job on Finishing the Quiz!",
                       style: TextStyle(
-                        color: Color.fromRGBO(51, 119, 41, 1.0),
+                        color: Colors.green,
                         decoration: TextDecoration.underline,
                         decorationColor: Colors.black,
                         fontSize: 20.0,
