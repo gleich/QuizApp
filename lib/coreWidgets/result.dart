@@ -28,7 +28,7 @@ class Result extends StatelessWidget {
           Container(
             width: double.infinity,
             margin: EdgeInsets.all(60),
-            child: RaisedButton(
+            child: FlatButton(
               child: Text("Retry Quiz"),
               color: Colors.black,
               textColor: Colors.white,

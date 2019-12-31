@@ -27,7 +27,7 @@ class Quiz extends StatelessWidget {
         Container(
           width: double.infinity,
           margin: EdgeInsets.all(60),
-          child: RaisedButton(
+          child: FlatButton(
             child: Text("Restart"),
             color: Colors.red,
             textColor: Colors.white,
