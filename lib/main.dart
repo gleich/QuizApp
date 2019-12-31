@@ -85,8 +85,8 @@ class _MyAppState extends State<MyApp> {
                       width: double.infinity,
                       margin: EdgeInsets.all(60),
                       child: RaisedButton(
-                        child: Text("Restart"),
-                        color: Colors.red,
+                        child: Text("Retry Quiz"),
+                        color: Colors.black,
                         textColor: Colors.white,
                         onPressed: () {
                           setState(
