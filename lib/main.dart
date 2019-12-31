@@ -78,6 +78,7 @@ class _MyAppState extends State<MyApp> {
                         decoration: TextDecoration.underline,
                         decorationColor: Colors.black,
                         fontSize: 20.0,
+                        fontWeight: FontWeight.bold
                       ),
                     ),
                     Container(
