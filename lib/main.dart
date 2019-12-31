@@ -1,7 +1,8 @@
 import "package:flutter/material.dart";
 
-import "./widgets/question.dart";
-import "./widgets/answer.dart";
+
+import './coreWidgets/quiz.dart';
+import './coreWidgets/result.dart';
 
 void main() => runApp(MyApp());
 
@@ -15,7 +16,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   // State for MyApp class
   var _questionIndex = 0;
-  static const questions = [
+  static const _questions = [
     {
       "question": "What is your favorite color?",
       "answers": ["🔴 Red 🔴", "🟢 Green 🟢", "🔵 Blue 🔵"]
@@ -32,6 +33,12 @@ class _MyAppState extends State<MyApp> {
     }); // Change state of MyApp Widget
   }
 
+  void _restart() {
+    setState(() {
+      _questionIndex = 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -40,66 +47,14 @@ class _MyAppState extends State<MyApp> {
           title: Text("✏️    Quiz App    ✏️"),
           backgroundColor: Colors.black,
         ),
-        body: _questionIndex < questions.length
-            ? Column(
-                children: <Widget>[
-                  Question(questions[_questionIndex]["question"]),
-                  ...(questions[_questionIndex]["answers"] as List<String>).map(
-                    (answer) {
-                      return Answer(_answeredQuestion, answer);
-                    },
-                  ).toList(),
-                  Container(
-                    width: double.infinity,
-                    margin: EdgeInsets.all(60),
-                    child: RaisedButton(
-                      child: Text("Restart"),
-                      color: Colors.red,
-                      textColor: Colors.white,
-                      onPressed: () {
-                        setState(
-                          () {
-                            _questionIndex = 0;
-                          },
-                        );
-                      },
-                    ),
-                  ),
-                ],
+        body: _questionIndex < _questions.length
+            ? Quiz(
+                questions: _questions,
+                answeredQuestion: _answeredQuestion,
+                questionIndex: _questionIndex,
+                restart: _restart,
               )
-            : Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      "Nice Job on Finishing the Quiz!",
-                      style: TextStyle(
-                        color: Colors.green,
-                        decoration: TextDecoration.underline,
-                        decorationColor: Colors.black,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold
-                      ),
-                    ),
-                    Container(
-                      width: double.infinity,
-                      margin: EdgeInsets.all(60),
-                      child: RaisedButton(
-                        child: Text("Retry Quiz"),
-                        color: Colors.black,
-                        textColor: Colors.white,
-                        onPressed: () {
-                          setState(
-                            () {
-                              _questionIndex = 0;
-                            },
-                          );
-                        },
-                      ),
-                    )
-                  ],
-                ),
-              ),
+            : Result(restart: _restart,)
       ),
     );
   }
