@@ -57,6 +57,10 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
+  double _calcPercentage(int score) {
+    return (score / 30) * 100;
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -74,6 +78,7 @@ class _MyAppState extends State<MyApp> {
                 )
               : Result(
                   restart: _restart,
+                  calcScore: _calcPercentage,
                   score: _totalScore,
                 )),
     );

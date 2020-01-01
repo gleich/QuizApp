@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 
 class Result extends StatelessWidget {
   final Function restart;
+  final Function calcScore;
   int score;
-  Result({@required this.restart, @required this.score});
+  Result(
+      {@required this.restart, @required this.score, @required this.calcScore});
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +25,12 @@ class Result extends StatelessWidget {
             "Your Score was: " + score.toString() + "/30",
             style: TextStyle(
               fontSize: 30.0,
+            ),
+          ),
+          Text(
+            calcScore(score).toString() + "%",
+            style: TextStyle(
+              fontSize: 30.0
             ),
           ),
           Container(
