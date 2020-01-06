@@ -65,22 +65,23 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-          appBar: AppBar(
-            title: Text("✏️    Quiz App    ✏️"),
-            backgroundColor: Colors.black,
-          ),
-          body: _questionIndex < _questions.length
-              ? Quiz(
-                  questions: _questions,
-                  answeredQuestion: _answeredQuestion,
-                  questionIndex: _questionIndex,
-                  restart: _restart,
-                )
-              : Result(
-                  restart: _restart,
-                  calcScore: _calcPercentage,
-                  score: _totalScore,
-                )),
+        appBar: AppBar(
+          title: Text("✏️    Quiz App    ✏️"),
+          backgroundColor: Colors.black,
+        ),
+        body: _questionIndex < _questions.length
+            ? Quiz(
+                questions: _questions,
+                answeredQuestion: _answeredQuestion,
+                questionIndex: _questionIndex,
+                restart: _restart,
+              )
+            : Result(
+                restart: _restart,
+                calcScore: _calcPercentage,
+                score: _totalScore,
+              ),
+      ),
     );
   }
 }
